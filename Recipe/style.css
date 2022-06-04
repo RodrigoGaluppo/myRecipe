@@ -1,0 +1,17 @@
+
+.imgBackground{
+    max-height: 70vh;
+}
+
+.imgBackgroundRecipe{
+    max-height: 60vh;
+    
+}
+
+.aligncenter{
+    margin:0 auto;
+}
+
+.minWidth-980{
+    max-width: 980px;
+}

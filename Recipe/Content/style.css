@@ -1,0 +1,37 @@
+
+.imgBackground {
+    max-height: 60vh;
+    min-height: 40vh;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.imgBackgroundRecipe{
+    height:40vh;
+    background-size:contain;
+    object-fit:cover;
+    
+}
+*:focus {
+    outline: none;
+}
+.aligncenter{
+    margin:0 auto;
+}
+
+.minWidth-980{
+    max-width: 980px;
+}
+
+.info{
+    margin-top:8px;
+    list-style-type:none;
+}
+
+.info > svg{
+    position: relative;
+    top: -2px;
+    width:20px;
+    height:20px;
+}
+

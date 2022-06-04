@@ -1,0 +1,114 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="DashBoardMaster.master.cs" Inherits="Recipe.DashBoardMaster" %>
+
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+   
+    <title>Dashboard MyRecipe</title>
+
+   
+    <!-- Favicons -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+       
+
+<meta name="theme-color" content="#7952b3">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/dashboard.css" rel="stylesheet">
+      <link rel="stylesheet" href="~/Content/style.css">
+</head>
+    
+   <%
+        string Baseurl = new UriBuilder(Request.Url.AbsoluteUri) { Path = Request.ApplicationPath, Query = null, Fragment = null }.ToString();
+        var url = new Uri(HttpContext.Current.Request.Url.AbsoluteUri);
+        string[] Queries = url.ToString().Split('/');
+
+     %>
+
+ <body>
+    
+<header class="navbar navbar-expand-md navbar-dark sticky-top bg-dark flex-md-nowrap p-3 shadow">
+    <button class="navbar-toggler  d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="<%= String.Concat(Baseurl,"DashBoard") %>">MyRecipe</a>
+ 
+  <!--<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">-->
+  <div class="navbar-nav">
+    <div class="nav-item text-nowrap">
+      <a class="nav-link px-3" href="<%= String.Concat(Baseurl,"LogOut.aspx") %>">Sign out</a>
+    </div>
+  </div>
+</header>
+
+<div class="container-fluid h-100" style="max-height:100vh;overflow-y:auto;" >
+  <div class="row">
+    <nav id="sidebarMenu" style="height:100vh;" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+      <div class="position-sticky pt-3 ">
+          <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>Geral</span>
+          
+        </h6>
+        <ul class="nav flex-column">
+
+          <li class="nav-item">
+             <a class="nav-link active text-white"  href="<%= String.Concat(Baseurl,"DashBoard/recipes") %>">
+              <span data-feather="home">Receitas</span>
+            </a>
+
+              <a class="nav-link active text-white"  href="<%= String.Concat(Baseurl,"DashBoard/categories") %>">
+              <span data-feather="home">Categorias</span>
+            </a>
+
+              <a class="nav-link active text-white"  href="<%= String.Concat(Baseurl,"DashBoard/ingredients") %>">
+              <span data-feather="home">Ingredientes</span>
+            </a>
+
+               <a class="nav-link active text-white"  href="<%= String.Concat(Baseurl,"DashBoard/measures") %>">
+              <span data-feather="home">Medidas</span>
+            </a>
+            
+          </li>
+
+   
+          
+        </ul>
+
+        <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+          <span>Administração</span>
+          
+        </h6>
+        <ul class="nav flex-column mb-2">
+          <li class="nav-item">
+            <a class="nav-link active text-white"  href="<%= String.Concat(Baseurl,"DashBoard/users") %>">
+              <span data-feather="home">Usuarios</span>
+            </a>
+          </li>
+
+          
+        </ul>
+      </div>
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="max-height:100vh;overflow-y:auto;">
+     
+            <form id="form1" runat="server">
+                <div>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
+                    </asp:ContentPlaceHolder>
+                </div>
+            </form>
+      
+    </main>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" ></script>
+
+
+  </body>
+</html>
+
